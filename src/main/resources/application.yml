@@ -1,0 +1,17 @@
+spring:
+    datasource:
+        platform: mariadb
+        driverClassName: org.mariadb.jdbc.Driver
+        url: jdbc:mysql:failover://192.168.33.11,192.168.33.12,192.168.33.13/test?autoReconnect=true
+        # Doesn't work with mariadb-connector-j v1.3.2 (CONJ-227)
+#        url: jdbc:mariadb:failover://192.168.33.11:3306/test
+        # Works with mariadb-connector-j v1.3.2
+#        url: jdbc:mysql:failover://192.168.33.11:3306/test
+        username: root
+        password: test
+
+        timeBetweenEvictionRunsMillis: 1000
+        testWhileIdle: true
+        validationQuery: SELECT 1
+    jpa:
+        ddl-auto: ''
