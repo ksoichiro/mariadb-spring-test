@@ -23,6 +23,7 @@ Each one is a master node of Galera Cluster.
 1. Replace content of `/etc/mysql/debian.cnf` with copied debian.cnf from g1
 1. Do same things in g3
 1. Restart hosts
+    * On g1, MariaDB should start with `service mysql start --wsrep-new-cluster`
 
 #### Other operations
 
