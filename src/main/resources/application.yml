@@ -2,11 +2,12 @@ spring:
     datasource:
         platform: mariadb
         driverClassName: org.mariadb.jdbc.Driver
-        url: jdbc:mysql:failover://192.168.33.11,192.168.33.12,192.168.33.13/test?autoReconnect=true
-        # Doesn't work with mariadb-connector-j v1.3.2 (CONJ-227)
-#        url: jdbc:mariadb:failover://192.168.33.11:3306/test
+        # Fixed in v1.3.3. Doesn't work with mariadb-connector-j v1.3.2 (CONJ-227)
+        url: jdbc:mariadb:failover://192.168.33.11:3306/test?autoReconnect=true
+        # If some of the hosts is down, app won't launch. v1.3.3
+        #url: jdbc:mariadb:failover://192.168.33.11:3306,192.168.33.12:3306,192.168.33.13:3306/test?autoReconnect=true
         # Works with mariadb-connector-j v1.3.2
-#        url: jdbc:mysql:failover://192.168.33.11:3306/test
+        #url: jdbc:mysql:failover://192.168.33.11:3306/test
         username: root
         password: test
 
